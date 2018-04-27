@@ -4,17 +4,17 @@ services:
   db:
     image: postgres:9.6
     env_file: .env
-    volumes:
-      - .pgdata:/var/lib/postgresql/data/pgdata
+    # volumes:
+    #   - .pgdata:/var/lib/postgresql/data/pgdata
   web:
     env_file: .env
     environment:
       - DJANGO_SETTINGS_MODULE=pollap.settings.local
     build: .
-    command: python3 pollap/manage.py runserver 0.0.0.0:8000
+    command: python3 pollap/manage.py runserver 0.0.0.0:8080
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
+      - "8080:8080"
     depends_on:
       - db
