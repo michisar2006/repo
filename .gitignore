@@ -102,3 +102,4 @@ ENV/
 
 .env
 .pgdata
+pollap/static/*
