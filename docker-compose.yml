@@ -11,7 +11,7 @@ services:
     environment:
       - DJANGO_SETTINGS_MODULE=pollap.settings.local
     build: .
-    command: python3 pollap/manage.py runserver 0.0.0.0:8080
+    command: python3 src/manage.py runserver 0.0.0.0:8080
     volumes:
       - .:/code
     ports:
