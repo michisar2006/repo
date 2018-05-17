@@ -38,8 +38,8 @@ class Match(models.Model):
     PLAYING = "playing"
     ENDED = "ended"
 
-    player1 = models.ForeignKey(Team, on_delete=models.CASCADE)
-    player2 = models.ForeignKey(Team, on_delete=models.CASCADE)
+    player1 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='player1_matches')
+    player2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='player2_matches')
 
     player1_goals = models.IntegerField(default=0, null=True, blank=True)
     player2_goals = models.IntegerField(default=0, null=True, blank=True)
