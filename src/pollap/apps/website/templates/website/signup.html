@@ -1,0 +1,28 @@
+{% extends "website/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-6 col-offset-2">
+      <h2>Register</h2>
+      <form method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+          {% endfor %}
+        <input class="btn btn-secondary" type="submit" value="Save" />
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>
+<!-- /container -->
+{% endblock %}
